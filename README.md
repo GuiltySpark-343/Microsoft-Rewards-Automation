@@ -4,6 +4,8 @@
 
 selenium==4.4.3
 webdriver-manager>=3.8.5
+需要安装chrome webdrive 放在main文件或selenium库文件夹下
+https://registry.npmmirror.com/binary.html?path=chromedriver/
 
 参考了dalao的项目[charlesbel/Microsoft-Rewards-Farmer: A simple bot that uses selenium to farm Microsoft Rewards written in Python (github.com)](https://github.com/charlesbel/Microsoft-Rewards-Farmer)
 
