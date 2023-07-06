@@ -168,6 +168,7 @@ def click_mission(email,pwd):
         except:
             continue
  #获取分数
+    time.sleep(2)
     x=1
     while x:
         try:
