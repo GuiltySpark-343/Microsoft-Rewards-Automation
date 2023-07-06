@@ -80,13 +80,13 @@ def click_mission(email,pwd):
     print(email+"  start point="+str(star_point))
     print("search mission on pc")
     #pc 搜索
-    # for i in range(37):
-    #     try:
-    #         url_x="https://cn.bing.com/search?q=abc"+str(i)
-    #         driver.get(url_x)
-    #         time.sleep(0.5)
-    #     except:
-    #         continue
+    for i in range(37):
+        try:
+            url_x="https://cn.bing.com/search?q=abc"+str(i)
+            driver.get(url_x)
+            time.sleep(0.5)
+        except:
+            continue
 
 
 
