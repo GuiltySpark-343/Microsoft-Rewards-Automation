@@ -10,10 +10,11 @@ import time
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.chrome.options import Options as ChromeOptions
 import json
 import os
 from pathlib import Path
-
+PC_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.51'
 
 def waitUntilVisible(browser: WebDriver, by_: By, selector: str, time_to_wait: int = 10):
     """Wait until visible"""
@@ -23,9 +24,10 @@ def waitUntilVisible(browser: WebDriver, by_: By, selector: str, time_to_wait: i
 def click_mission(email,pwd):
     start_time=time.time()
     # 访问 https://www.jetbrains.com/help/pycharm/ 获取 PyCharm 帮助
-    driver = webdriver.Chrome()# 谷歌
     #登录
-
+    options=ChromeOptions()
+    options.add_argument("user-agent=" + PC_USER_AGENT)
+    driver = webdriver.Chrome(options=options)  # 谷歌
     driver.get('https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=14&id=264960&wreply=https%3a%2f%2fcn.bing.com%2fsecure%2fPassport.aspx%3fedge_suppress_profile_switch%3d1%26requrl%3dhttps%253a%252f%252fcn.bing.com%252f%253fwlexpsignin%253d1%26sig%3d349CFDF412B8677F2425EEB213526600%26nopa%3d2&wp=MBI_SSL&lc=2052&pcexp=false&CSRFToken=8acdec74-02ec-491e-a870-2833ff74dcfe&aadredir=1&nopa=2')
 
     time.sleep(3)
@@ -79,7 +81,7 @@ def click_mission(email,pwd):
 
     print(email+"  start point="+str(star_point))
     print("search mission on pc")
-    #pc 搜索
+    # pc 搜索
     for i in range(37):
         try:
             url_x="https://cn.bing.com/search?q=abc"+str(i)
@@ -167,8 +169,8 @@ def click_mission(email,pwd):
             time.sleep(0.5)
         except:
             continue
- #获取分数
     time.sleep(2)
+ #获取分数
     x=1
     while x:
         try:
